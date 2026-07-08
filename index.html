@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: Inter, system-ui, sans-serif;
+        }
+        .menu-canto {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            color: #fff;
+            padding: 10px 16px;
+            border: double;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            user-select: none;
+        }
+        .menu-opcoes {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            width: 200px;
+            background: #0004ff;
+            border: 1px solid #ff00f7;
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 1000;
+        }
+        .menu-opcoes ul {
+            list-style: none;
+            margin: 0;
+            padding: 10px;
+        }
+        .menu-opcoes li + li {
+            margin-top: 8px;
+        }
+        .menu-opcoes a {
+            color: #ff00f2;
+            text-decoration: none;
+            display: block;
+            padding: 8px 10px;
+        }
+        .menu-opcoes a:hover {
+            background: #928f8f;
+            opacity: 0.6;
+            transition: 0.1s;
+            color: #070707;
+        }
+        header {
+            & h1 {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+                color: #0091ff;
+            }
+        }
+        .img1 {
+            & img { 
+                width: 25vw;
+                border-radius: 10px;
+            }
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        body {
+            overflow: hidden;
+            min-height: 200vh;
+            background: radial-gradient(circle at top, #fc00fc 0%, #3d163a 55%, #180918 100%);
+        }
+        .pulse-card {
+            position: absolute;
+            left: 55%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+        }
+
+        .pulse-card::before,
+        .pulse-card::after{
+            content:"";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            opacity: 0.35;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.24), transparent 55%);
+            animation: pulse 0.3s ease-in-out infinite;
+        }
+        .pulse-card::after {
+            animation-delay: 0.9s;
+            opacity: 0.2;
+        }
+
+        .pulse-card img {
+            width: 20%;
+            height: 20%;
+            object-fit: contain;
+            z-index: 1;
+        }
+
+
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+                filter: drop-shadow(0 0 0px rgba(255, 0, 0, 0.8));
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes beat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        .habilidades {
+            display: flex;
+            margin-top: 2rem;
+            gap: 1rem;
+            & img{
+                width: 50px;
+            }
+        }
+        .info {
+            position : absolute;
+            min-width: 40%;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+         <h1> Seraphine </h1>
+    </header>
+    
+    <div class="menu-canto" id="botãoMenu">Menu</div>
+    <div class="menu-opcoes" id="menuOpcoes">
+        <ul>
+            <li><a href="#">Opção 1</a></li>
+            <li><a href="#">Opção 2</a></li>
+            <li><a href="#">Opção 3</a></li>
+        </ul>
+    </div>
+
+    <div class="img1"> 
+        <img src="./imagens site/Seraphine_0.jpg" alt="Imagem 1"> 
+    </div>
+
+    <div class="pulse-card">
+        <img src="music-note (1).svg">
+     </div>
+
+         <h2>Habilidades</h2>
+
+     <div class="habilidades"> 
+
+        <img src ="imagens site/01.png">
+        
+
+         <img src ="imagens site/02.png">
+
+         <img src ="imagens site/03.png">
+
+         <img src ="imagens site/04.png">
+
+        <img src ="imagens site/05.png">
+
+        </div>
+
+        <div class="info">
+            <h1> A CANTORA SONHADORA </h1>
+            <p>Nascida em Piltover e filha de zaunitas, Seraphine é capaz de ouvir a alma das pessoas. O mundo canta para ela, e ela canta em resposta. Esses sons a perturbavam quando era mais jovem, mas hoje ela os usa como inspiração, transformando o caos em uma sinfonia. A cantora se apresenta nas cidades irmãs para lembrar a seus cidadãos que eles não estão sozinhos, que são mais fortes juntos e que, aos olhos dela, o potencial deles é ilimitado.
+                 </p>
+        </div>
+
+
+
+
+    <script> 
+   const botãoMenu = document.getElementById('botãoMenu');
+   const menuOpcoes = document.getElementById('menuOpcoes');
+ 
+   botãoMenu.addEventListener('click', () => {
+       menuOpcoes.style.display = menuOpcoes.style.display === 'block' ? 'none' : 'block';
+   });
+
+   document.addEventListener('click', (event) => {
+            if (!botaoMenu.contains(event.target) && !painelMenu.contains(event.target)) {
+                painelMenu.style.display = 'none';
+            }
+        });
+
+
+   </script>
+</body>
+</html>
